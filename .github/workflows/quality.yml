@@ -1,0 +1,41 @@
+name: Quality
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          coverage: none
+
+      - name: Install Composer dependencies
+        run: composer install --prefer-dist --no-interaction --no-progress
+
+      - name: Install Node dependencies
+        run: npm ci
+
+      - name: Lint PHP (Pint)
+        run: composer lint:check
+
+      - name: Static Analysis (PHPStan)
+        run: composer analyse
+
+      - name: Run Tests (Pest)
+        run: composer test
+
+      - name: Lint JS (ESLint)
+        run: npm run lint:js
+
+      - name: Check Formatting (Prettier)
+        run: npm run format:check
