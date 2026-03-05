@@ -1,5 +1,5 @@
 {
-    "name": "devforce141/code-quality-starter",
+    "name": "devforce141/code-quality-starter-kit",
     "description": "DevForce 141 — Laravel starter kit with Pint, Larastan, Pest, and Rector pre-configured.",
     "keywords": ["laravel", "starter-kit", "pest", "pint", "larastan", "rector"],
     "license": "MIT",
