@@ -18,6 +18,12 @@ All config files (`pint.json`, `phpstan.neon`, `rector.php`, `prettier.config.js
 
 Architecture tests live in `tests/Architecture/ConventionsTest.php` — edit them to match your project's conventions.
 
+### For Existing Projects
+Installing and setting up each tool manually is annoying, especially if the same process needs to be repeated across many
+projects, hence ``code-quality-setup-for-existing-project.sh`` is provided which installs all the quality tools and 
+generates their baseline config same as this repo. The bash script is added here to keep both the starter kit and 
+the bash script in view, and hopefully keep both of them in sync.
+
 ---
 
 ## Installation
